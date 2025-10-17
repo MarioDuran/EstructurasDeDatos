@@ -37,6 +37,8 @@ public:
     // CREATE
     void insertAtHead(Point p);
     // Inserta un nuevo nodo al inicio de la lista que contenga el punto especificado.
+    // Si ya existía nodo A, e insertamos B, el nodo B debe enlazarse con head, B->A
+    //luego actualizamos head.
 
     // READ
     Node* getHead() const;
@@ -52,6 +54,13 @@ public:
     void updatePositions(const Point& newHead, bool grow);
     // Actualiza las posiciones de todos los nodos desplazando los valores a lo largo de la lista.
     // Si el parámetro grow es verdadero, se añade un nuevo nodo al final de la lista con la posición anterior de la cola.
+    //esa posición será la nueva posición de la cabeza, mientras que la posición de la cabeza será la posición del eslabón siguiente. 
+    // Ejemplo en x
+    // head -> (10) -> (11) - (12) 
+    // updatePosition newHead = 9
+    // head -> (9) -> (10) - (11) 
+    // cuida lel caso donde grow es = true, ahí habrá que añadir un nuevo nodo.  
+
 
     // REMOVE
     void removeTail();
